@@ -11,7 +11,8 @@ fun main() {
 
     // test if implementation meets criteria from the description, like:
     val testInput = readTxtFile("day$dayIndex/Day${dayIndex}_test")
-    check(part1(testInput) == 1)
+    val part1Result = part1(testInput) == 1
+    check(part1(testInput) == 1) { "part 1 result is: $part1Result" }
 
     val input = readTxtFile("day$dayIndex/Day$dayIndex")
     println(part1(input))
