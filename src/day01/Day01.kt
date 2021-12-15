@@ -1,4 +1,4 @@
-package day01
+package main.day01
 
 import readTxtFile
 
