@@ -11,26 +11,30 @@ fun main() {
     println(part2(input))
 }
 
-fun convertToBingoBoards(input: List<String>) =
-    input
-        .subList(fromIndex = 2, input.size)
-        .asSequence()
-        .filterNot(String::isBlank)
-        .chunked(5)
-        .map { BingoBoard.from(it) }
-
-fun getBingoNumbers(input: List<String>) =
-    input
-        .first()
-        .split(',')
-        .map { it.toInt() }
-
 fun part1(input: List<String>): Int {
-    val bingoNumbers = getBingoNumbers(input)
     val bingoBoards = convertToBingoBoards(input)
-    return 1
+    getBingoNumbers(input).forEach() { bingoNumber ->
+        bingoBoards.forEach { bingoBoard ->
+            bingoBoard.call(bingoNumber)
+        }
+        val boardWithBingo = bingoBoards.firstOrNull(BingoBoard::hasBingo)
+        if (boardWithBingo != null) {
+            return sumUnmarkedFieldValues(boardWithBingo) * bingoNumber
+        }
+    }
+    throw IllegalArgumentException("given input yields no bingo")
 }
 
 fun part2(input: List<String>): Int {
-    return input.size
+    val bingoBoards = convertToBingoBoards(input).toMutableList()
+    getBingoNumbers(input).forEach() { bingoNumber ->
+        bingoBoards.forEach { bingoBoard ->
+            bingoBoard.call(bingoNumber)
+        }
+        if (bingoBoards.size == 1 && bingoBoards.all(BingoBoard::hasBingo)) {
+            return sumUnmarkedFieldValues(bingoBoards.single()) * bingoNumber
+        }
+        bingoBoards.removeAll(BingoBoard::hasBingo)
+    }
+    throw IllegalArgumentException("given input yields no single last bingo board")
 }

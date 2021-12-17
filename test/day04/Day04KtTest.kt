@@ -1,6 +1,6 @@
 package day04
 
-import io.kotest.matchers.sequences.shouldHaveSize
+import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import readTxtFile
@@ -28,5 +28,10 @@ class Day04KtTest {
     @Test
     fun partOne__success() {
         part1(testInput) shouldBe 4512
+    }
+
+    @Test
+    fun partTwo__success() {
+        part2(testInput) shouldBe 1924
     }
 }
