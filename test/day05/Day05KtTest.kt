@@ -15,6 +15,11 @@ internal class Day05KtTest {
     }
 
     @Test
+    fun partTwo__success() {
+        part2(testInput) shouldBe 12
+    }
+
+    @Test
     fun convertToLineDefinitions__success() {
         val lineDefinitions = convertToLineDefinitions(testInput)
 

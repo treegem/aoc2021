@@ -1,10 +1,15 @@
 package day05
 
+import kotlin.math.absoluteValue
+
 data class LineDefinition(
     val start: Position,
     val end: Position,
 ) {
-    fun definesHorizontalLine() = start.y == end.y
+    fun isHorizontal() = start.y == end.y
 
-    fun definesVerticalLine() = start.x == end.x
+    fun isVertical() = start.x == end.x
+
+    fun isDiagonal() = (start.x - end.x).absoluteValue == (start.y - end.y).absoluteValue
+    
 }

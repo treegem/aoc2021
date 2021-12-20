@@ -13,7 +13,7 @@ fun main() {
 
 fun part1(input: List<String>) =
     convertToLineDefinitions(input)
-        .filter { it.definesVerticalLine() || it.definesHorizontalLine() }
+        .filter { it.isVertical() || it.isHorizontal() }
         .map { Line(it) }
         .flatMap { it.positions }
         .groupingBy { it }
@@ -21,6 +21,12 @@ fun part1(input: List<String>) =
         .filter { it.value > 1 }
         .count()
 
-fun part2(input: List<String>): Int {
-    return input.size
-}
+fun part2(input: List<String>) =
+    convertToLineDefinitions(input)
+        .filter { it.isVertical() || it.isHorizontal() || it.isDiagonal() }
+        .map { Line(it) }
+        .flatMap { it.positions }
+        .groupingBy { it }
+        .eachCount()
+        .filter { it.value > 1 }
+        .count()
