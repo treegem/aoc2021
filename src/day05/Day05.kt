@@ -11,10 +11,15 @@ fun main() {
     println(part2(input))
 }
 
-fun part1(input: List<String>): Int {
-    val lineDefinitions = convertToLineDefinitions(input)
-    return input.size
-}
+fun part1(input: List<String>) =
+    convertToLineDefinitions(input)
+        .filter { it.definesVerticalLine() || it.definesHorizontalLine() }
+        .map { Line(it) }
+        .flatMap { it.positions }
+        .groupingBy { it }
+        .eachCount()
+        .filter { it.value > 1 }
+        .count()
 
 fun part2(input: List<String>): Int {
     return input.size
