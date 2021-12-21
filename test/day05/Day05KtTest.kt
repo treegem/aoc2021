@@ -3,11 +3,11 @@ package day05
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
-import readTxtFile
+import readTxtFileAsLines
 
 internal class Day05KtTest {
 
-    private val testInput = readTxtFile("day$dayIndex/Day${dayIndex}_test")
+    private val testInput = readTxtFileAsLines("day$dayIndex/Day${dayIndex}_test")
 
     @Test
     fun partOne__success() {

@@ -1,12 +1,12 @@
 package day04
 
-import readTxtFile
+import readTxtFileAsLines
 import util.toDayIndex
 
 val dayIndex = 4.toDayIndex()
 
 fun main() {
-    val input = readTxtFile("day$dayIndex/Day$dayIndex")
+    val input = readTxtFileAsLines("day$dayIndex/Day$dayIndex")
     println(part1(input))
     println(part2(input))
 }

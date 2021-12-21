@@ -1,6 +1,6 @@
 package day03
 
-import readTxtFile
+import readTxtFileAsLines
 import util.bitwiseInvert
 
 fun main() {
@@ -75,7 +75,7 @@ fun main() {
     //endregion
 
     // test if implementation meets criteria from the description, like:
-    val testInput = readTxtFile("day$dayIndex/Day${dayIndex}_test")
+    val testInput = readTxtFileAsLines("day$dayIndex/Day${dayIndex}_test")
 
     //region part 1 tests
     check(gammaFromInput(testInput, 5) == 22)
@@ -92,7 +92,7 @@ fun main() {
     check(getCarbon(testInput) == 10)
     //endregion
 
-    val input = readTxtFile("day$dayIndex/Day$dayIndex")
+    val input = readTxtFileAsLines("day$dayIndex/Day$dayIndex")
     println(part1(input))
     println(part2(input))
 }

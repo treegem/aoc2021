@@ -1,6 +1,6 @@
 package day02
 
-import readTxtFile
+import readTxtFileAsLines
 
 fun main() {
     fun calculateFinalPositionWithoutAim(input: List<String>): SimplePosition =
@@ -24,13 +24,13 @@ fun main() {
     }
 
 // test if implementation meets criteria from the description, like:
-    val testInput = readTxtFile("day02/Day02_test")
+    val testInput = readTxtFileAsLines("day02/Day02_test")
     val part1Result = part1(testInput)
     check(part1Result == 150) { "part 1 result: $part1Result" }
     val part2Result = part2(testInput)
     check(part2Result == 900) { "part 2 result: $part2Result" }
 
-    val input = readTxtFile("day02/Day02")
+    val input = readTxtFileAsLines("day02/Day02")
     println(part1(input))
     println(part2(input))
 }
